@@ -16,10 +16,6 @@ public class ActionButton extends Button {
         calculator = calc;
         this.operation=operation;
         this.setOnAction(setActionEvent());
-        if(operation.equals("+")){
-            System.out.println("siuema");
-            //this.setOnKeyPressed(setKeyHandler());
-        }
     }
 
     public String concat(String sign){

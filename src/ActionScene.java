@@ -37,11 +37,11 @@ public class ActionScene extends Scene{
                 }else if(event.getCode() == KeyCode.M){
                     setOperation('*');
                 }else if(event.getCode() == KeyCode.E){
-
+                    calculator.clearField();
                 }else if(event.getCode() == KeyCode.D){
                     setOperation('/');
                 }else if(event.getCode() == KeyCode.C){
-
+                    calculator.clearState();
                 }else if(event.getCode() == KeyCode.A){
                     setOperation('+');
                 }else if(event.getCode() == KeyCode.S){
@@ -70,6 +70,8 @@ public class ActionScene extends Scene{
                     }
                     if(calculator.getText().equals("0")){
                         calculator.setText(sign);
+                    }else if(calculator.getText().equals("-0")){
+                        calculator.setText("-" + sign);
                     }else{
                         calculator.setText(calculator.getText()+sign);
                     }

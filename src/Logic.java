@@ -4,7 +4,7 @@ public class Logic {
 
     }
 
-    private String calculate(char state){
+    private void calculate(char state){
         if(state != 10){
             //System.out.println("state "+calculator.state);
             String result="";
@@ -31,5 +31,8 @@ public class Logic {
         }
     }
 
+    public String getNumber(){
+        return "";
+    }
 
 }

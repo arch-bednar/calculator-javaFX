@@ -181,11 +181,6 @@ public class Calculator extends Application{
         this.setText();
         //textField.setText("siema");
 
-        stage.addEventHandler(KeyEvent.KEY_PRESSED, ev->{
-            if(ev.getCode() == KeyCode.NUMPAD3){
-                setText(getText()+String.valueOf(KeyCode.NUMPAD3));
-            }
-        });
     }
 
 

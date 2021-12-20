@@ -38,10 +38,12 @@ public class NumberButton extends Button{
             public void handle(ActionEvent e){
                 //System.out.println("Siema");
                 setFocusTraversable(false);
-                if(calc.getText().isEmpty() || !calc.getText().substring(0, 1).equals("0")){
-                    calc.setText(calc.getText() + num);
-                }else{
+                if(calc.getText().equals("0")){
                     calc.setText(num);
+                }else if(calc.getText().equals("-0")){
+                    calc.setText("-" + num);
+                }else{
+                    calc.setText(calc.getText() + num);
                 }
             }
         };
