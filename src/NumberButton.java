@@ -12,7 +12,7 @@ public class NumberButton extends Button{
 
     public NumberButton(String number, Calculator calc){
         super(number);
-
+        setFocusTraversable(false);
         this.calc = calc;
         this.num = number;
         this.number = Integer.parseInt(number);
@@ -37,6 +37,7 @@ public class NumberButton extends Button{
             @Override
             public void handle(ActionEvent e){
                 //System.out.println("Siema");
+                setFocusTraversable(false);
                 if(calc.getText().isEmpty() || !calc.getText().substring(0, 1).equals("0")){
                     calc.setText(calc.getText() + num);
                 }else{

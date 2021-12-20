@@ -1,21 +1,22 @@
 import javafx.scene.control.TextField;
 import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 class Display extends TextField{
 
     Display(){
-
+        setFocusTraversable(false);
+        setEditable(false);
+        setListener();
     }
 
-    private void setKeyListener(){
-        this.setOnKeyTyped(new EventHandler<KeyEvent>(){
+    private void setListener(){
+        this.setOnAction(new EventHandler<ActionEvent>(){
             @Override
-            public void handle(KeyEvent event){
-                if(event.getCode() == KeyCode.DIGIT1 || event.getCode() == KeyCode.NUMPAD1){
-                    setText(getText()+"1");
-                }
+            public void handle(ActionEvent event){
+                setFocusTraversable(false);
             }
         });
     }

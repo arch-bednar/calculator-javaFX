@@ -4,22 +4,21 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-import java.security.Key;
-
-public class ActionButton extends Button{
+public class ActionButton extends Button {
 
     private String operation;
     private Calculator calculator;
 
     public ActionButton(String operation, Calculator calc){
         super(operation);
+        setFocusTraversable(false);
         this.setMinWidth(55);
         calculator = calc;
         this.operation=operation;
         this.setOnAction(setActionEvent());
         if(operation.equals("+")){
             System.out.println("siuema");
-            this.setOnKeyPressed(setKeyHandler());
+            //this.setOnKeyPressed(setKeyHandler());
         }
     }
 
@@ -85,6 +84,7 @@ public class ActionButton extends Button{
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent e) {
+                setFocusTraversable(false);
                 try {
                     if (operation.equals(".")) {
                         makeDouble();

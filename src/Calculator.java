@@ -18,8 +18,8 @@ public class Calculator extends Application{
     private Scene scene;
     private GridPane gridPane;
     public String result="0";
-    char state = 10;
-    private TextField textField;
+    protected char state = 10;
+    private Display textField;
 
     public Calculator(){
         //super() is not needed
@@ -43,14 +43,14 @@ public class Calculator extends Application{
         makeField();
         makeButtons();
 
-        Scene scene = new Scene( gridPane,300, 300);
+        //Scene scene = new Scene( gridPane,300, 300);
+        ActionScene scene = new ActionScene(gridPane, 300, 300, this);
         gridPane.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, null, null)));
         stage.setScene(scene);
     }
 
     public void makeField(){
-        textField = new TextField();
-        setKeyListener();
+        textField = new Display();
         gridPane.add(textField,0,0,5, 2);
     }
 
@@ -188,18 +188,6 @@ public class Calculator extends Application{
         });
     }
 
-    private void setKeyListener(){
-        textField.setOnKeyTyped(new EventHandler<KeyEvent>(){
-            @Override
-            public void handle(KeyEvent event){
-                if(event.getCode() == KeyCode.NUMPAD1 || event.getCode() == KeyCode.DIGIT1){
-                    System.out.println("bleee");
-                }else{
-                    System.out.println("xd");
-                }
-            }
-        });
-    }
 
     public static void main(String[] args){
         launch(args);
