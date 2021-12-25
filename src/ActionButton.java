@@ -40,16 +40,14 @@ public class ActionButton extends Button {
         setNumber();
     }
 
+    //calculate operation
     private void calculate(){
-        if(calculator.state != ' '){
+        if(calculator.state != 10){
             //System.out.println("state "+calculator.state);
 
             switch(calculator.state){
                 case '+':
-                    //System.out.println("state +"+state);
                     calculator.result = String.valueOf(Double.parseDouble(calculator.result) + Double.parseDouble(getNumber()));
-                    //System.out.println("wynik +"+getNumber());
-                    //System.out.println("dodawanie");
                     setNumber(calculator.result);
                     break;
                 case '-':
@@ -77,6 +75,20 @@ public class ActionButton extends Button {
     }
 
     private EventHandler<ActionEvent> setActionEvent(){
+
+        /*
+        if operation = '.' then make double
+        else if operation = '+/-' then change sign for plus/minus of number -> changeNegative function
+        else if oepration = '+' then add two numbers
+        else if operation = '-' then subtract two numbers
+        else if operation = '*' then multiply two numbers
+        else if operation = '/' then divide two numbers
+        else if operation = '%' then calculate percent of number
+        else if operation = 'CE' then clear field
+        else if operation = 'C' then clear field with state
+        else if opertaion = '=' then calculate operation
+         */
+
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent e) {

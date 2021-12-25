@@ -1,14 +1,18 @@
 import javafx.scene.control.TextField;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 
 class Display extends TextField{
 
+    /*
+        Display based on TextField
+        listener prevents from focusing on that Display
+     */
+
     Display(){
         setFocusTraversable(false);
-        setEditable(false);
+        setEditable(false);     //edition disabled
         setListener();
     }
 
@@ -20,6 +24,4 @@ class Display extends TextField{
             }
         });
     }
-
-
 }

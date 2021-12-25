@@ -14,11 +14,15 @@ import javafx.scene.paint.Color;
 
 public class Calculator extends Application{
 
+    /*
+        Calculator - application JavaFx
+     */
+
     private Stage stage;
     private Scene scene;
     private GridPane gridPane;
-    public String result="0";
-    protected char state = 10;
+    public String result="0";       //like temp variable, used to store result of operation or first number when awaits for another
+    protected char state = 10;      //state of operation (=10 then is no current state), defines operation like add, div, etc...
     private Display textField;
 
     public Calculator(){
@@ -31,6 +35,7 @@ public class Calculator extends Application{
 
     }
 
+    //make layout for application with buttons and display
     public void makeLayout(){
         gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
@@ -49,16 +54,19 @@ public class Calculator extends Application{
         stage.setScene(scene);
     }
 
+    //make display and add to grid
     public void makeField(){
         textField = new Display();
         gridPane.add(textField,0,0,5, 2);
     }
 
+    //make buttons
     public void makeButtons(){
         makeNumbers();
         makeSigns();
     }
 
+    //make number buttons
     public void makeNumbers(){
         int[][] numbers = { {7,8,9},
                             {4,5,6},
@@ -75,24 +83,10 @@ public class Calculator extends Application{
         }
 
         NumberButton button = new NumberButton(Integer.toString(numbers[3][0]), this);
-        //button.setActionEvent();
-        //makeEvent(button);
         gridPane.add(button,1,7,1,1);
     }
-/*
-    private void makeEvent(Button button){
-        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event){
-                System.out.println("elo");
-            }
-        };
 
-        button.setOnAction(event);
-    }
-
- */
-
+    //makes operation buttons
     public void makeSigns(){
         ActionButton sign = new ActionButton("C", this);
         sign.setMaxWidth(Double.MAX_VALUE);
@@ -152,6 +146,7 @@ public class Calculator extends Application{
         textField.setText(newString);
     }
 
+    //change negative number to positive and vice versa, used in 'C' operation
     public void changeNegative(){
         if(getText().substring(0, 1).equals("-")){
             setText(getText().substring(1));
@@ -160,17 +155,20 @@ public class Calculator extends Application{
         }
     }
 
+    //clear state of calculator with numbers, used in 'CE' operation
     public void clearState(){
         result="0";
         textField.setText(result);
         state=10;
     }
 
+    //clear display
     public void clearField(){
         textField.setText("0");
     }
 
 
+    //start the application
     @Override
     public void start(Stage stage){
         this.stage=stage;

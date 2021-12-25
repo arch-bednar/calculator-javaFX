@@ -6,7 +6,12 @@ import javafx.scene.input.KeyEvent;
 
 public class ActionScene extends Scene{
 
-    Calculator calculator;
+    /*
+        ActionScene based on Scene
+        logic for scene inside
+     */
+
+    Calculator calculator; //for easy access to objects of calculator
 
     ActionScene(GridPane pane, double width, double height, Calculator calc){
         super(pane, width, height);
@@ -15,6 +20,20 @@ public class ActionScene extends Scene{
     }
 
     private void setEvent(){
+
+        /*
+        if operation = '.' then make double
+        else if operation = '+/-' then change sign for plus/minus of number -> changeNegative function
+        else if oepration = '+' then add two numbers
+        else if operation = '-' then subtract two numbers
+        else if operation = '*' then multiply two numbers
+        else if operation = '/' then divide two numbers
+        else if operation = '%' then calculate percent of number
+        else if operation = 'CE' then clear field
+        else if operation = 'C' then clear field with state
+        else if opertaion = '=' then calculate operation
+         */
+
         setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -81,7 +100,7 @@ public class ActionScene extends Scene{
     }
 
     private void calculate(){
-        if(calculator.state != ' '){
+        if(calculator.state != 10){
             //System.out.println("state "+calculator.state);
 
             switch(calculator.state){

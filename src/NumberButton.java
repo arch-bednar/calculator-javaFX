@@ -6,7 +6,7 @@ import javafx.scene.input.KeyEvent;
 
 public class NumberButton extends Button{
 
-    private Calculator calc;
+    private Calculator calc; //for easy access
     private int number;
     private String num;
 
@@ -16,18 +16,8 @@ public class NumberButton extends Button{
         this.calc = calc;
         this.num = number;
         this.number = Integer.parseInt(number);
-        System.out.println(number);
+        //System.out.println(number);
         this.setOnAction(setActionEvent());
-        /*
-        this.setOnKeyPressed(new EventHandler<KeyEvent>(){
-            @Override
-            public void handle(KeyEvent e) {
-                if(e.getText().equals(num)){
-                    System.out.println("xDDDDD");
-                }
-            }
-        });
-         */
         this.setMinWidth(55);
     }
 
