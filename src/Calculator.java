@@ -134,6 +134,85 @@ public class Calculator extends Application{
 
     }
 
+    //calculate operation
+    protected void calculate(){
+        if(state != 10){
+            //System.out.println("state "+calculator.state);
+
+            switch(state){
+                case '+':
+                    add();
+                    break;
+                case '-':
+                    sub();
+                    break;
+                case '*':
+                    mul();
+                    break;
+                case '/':
+                    div();
+                    break;
+                case '%':
+                    percent();
+                    break;
+                case 'q':
+                    sqrt();
+                    break;
+                default:
+                    break;
+            }
+            setState();
+        }
+    }
+
+    private void add(){
+        //System.out.println("state +"+state);
+        result = String.valueOf(Double.parseDouble(result) + Double.parseDouble(getNumber()));
+        //System.out.println("wynik +"+getNumber());
+        //System.out.println("dodawanie");
+        setNumber(result);
+    }
+
+    private void sub(){
+        result = String.valueOf(Double.parseDouble(result) - Double.parseDouble(getNumber()));
+        setNumber(result);
+    }
+
+    private void mul(){
+        result = String.valueOf(Double.parseDouble(result) * Double.parseDouble(getNumber()));
+        setNumber(result);
+    }
+
+    private void div(){
+        result = String.valueOf(Double.parseDouble(result) / Double.parseDouble(getNumber()));
+        setNumber(result);
+    }
+
+    private void percent(){
+        result = String.valueOf(Double.parseDouble(result) * Double.parseDouble(getNumber())/100);
+        setNumber(result);
+    }
+
+    public void sqrt(){
+        //System.out.println(Double.parseDouble(getNumber()));
+        result = String.valueOf(Math.sqrt(Double.parseDouble(result)));
+        //System.out.println(result);
+        setText(result);
+        setState();
+    }
+
+    public void makeDouble(){
+        if(!getNumber().contains(".")){
+            setText(getNumber()+".");
+        }
+    }
+
+    public void setOperation(char sign){
+        setState(sign);
+        result=getNumber();
+        setNumber();
+    }
+
     public String getText(){
         return textField.getText();
     }
@@ -162,6 +241,27 @@ public class Calculator extends Application{
         state=10;
     }
 
+
+    private String getNumber(){
+        return getText();
+    }
+
+    private void setNumber(){
+        setText();
+    }
+
+    private void setNumber(String number){
+        setText(number);
+    }
+
+    private void setState(){
+        state = 10;
+    }
+
+    private void setState(char state){
+        this.state = state;
+    }
+
     //clear display
     public void clearField(){
         textField.setText("0");
@@ -177,7 +277,6 @@ public class Calculator extends Application{
         this.stage.show();
         this.stage.setTitle("Calculator javaFX");
         this.setText();
-        //textField.setText("siema");
 /*
         stage.addEventHandler(KeyEvent.KEY_PRESSED, ev->{
             if(ev.getCode() == KeyCode.NUMPAD3){

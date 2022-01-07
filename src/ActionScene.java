@@ -47,24 +47,25 @@ public class ActionScene extends Scene{
                     }
                 }else if(event.getCode() == KeyCode.ENTER){
                     if(calculator.state != 10){
-                        calculate();
+                        calculator.calculate();
                     }
                 }else if(event.getCode() == KeyCode.P){
-                    setOperation('%');
+                    calculator.setOperation('%');
                 }else if(event.getCode() == KeyCode.Q){
-                    sqrt();
+                    calculator.setOperation('q');
+                    calculator.calculate();
                 }else if(event.getCode() == KeyCode.M){
-                    setOperation('*');
+                    calculator.setOperation('*');
                 }else if(event.getCode() == KeyCode.E){
                     calculator.clearField();
                 }else if(event.getCode() == KeyCode.D){
-                    setOperation('/');
+                    calculator.setOperation('/');
                 }else if(event.getCode() == KeyCode.C){
                     calculator.clearState();
                 }else if(event.getCode() == KeyCode.A){
-                    setOperation('+');
+                    calculator.setOperation('+');
                 }else if(event.getCode() == KeyCode.S){
-                    setOperation('-');
+                    calculator.setOperation('-');
                 }else{
                     if(event.getCode() == KeyCode.DIGIT1 || event.getCode() == KeyCode.NUMPAD1){
                         sign="1";
@@ -99,41 +100,6 @@ public class ActionScene extends Scene{
         });
     }
 
-    private void calculate(){
-        if(calculator.state != 10){
-            //System.out.println("state "+calculator.state);
-
-            switch(calculator.state){
-                case '+':
-                    //System.out.println("state +"+state);
-                    calculator.result = String.valueOf(Double.parseDouble(calculator.result) + Double.parseDouble(getNumber()));
-                    //System.out.println("wynik +"+getNumber());
-                    //System.out.println("dodawanie");
-                    setNumber(calculator.result);
-                    break;
-                case '-':
-                    calculator.result = String.valueOf(Double.parseDouble(calculator.result) - Double.parseDouble(getNumber()));
-                    setNumber(calculator.result);
-                    break;
-                case '*':
-                    calculator.result = String.valueOf(Double.parseDouble(calculator.result) * Double.parseDouble(getNumber()));
-                    setNumber(calculator.result);
-                    break;
-                case '/':
-                    calculator.result = String.valueOf(Double.parseDouble(calculator.result) / Double.parseDouble(getNumber()));
-                    setNumber(calculator.result);
-                    break;
-                case '%':
-                    calculator.result = String.valueOf(Double.parseDouble(calculator.result) * Double.parseDouble(getNumber())/100);
-                    setNumber(calculator.result);
-                    break;
-                default:
-                    //System.out.println("derfault");
-                    break;
-            }
-            setState();
-        }
-    }
 
     private boolean isDot(){
         return calculator.getText().contains(".");
@@ -141,37 +107,5 @@ public class ActionScene extends Scene{
 
     private void setDot(){
         calculator.setText(calculator.getText() + ".");
-    }
-
-    public String getNumber(){
-        return calculator.getText();
-    }
-
-    public void setNumber(String number){
-        calculator.setText(number);
-    }
-
-    public void setNumber(){
-        calculator.setText();
-    }
-
-    public void setState(){
-        calculator.state = 10;
-    }
-
-    public void setState(char state){
-        calculator.state = state;
-    }
-
-    public void sqrt(){
-        calculator.result = String.valueOf(Math.sqrt(Double.parseDouble(calculator.getText())));
-        calculator.setText(calculator.result);
-        setState();
-    }
-
-    public void setOperation(char sign){
-        setState(sign);
-        calculator.result=getNumber();
-        setNumber();
     }
 }
