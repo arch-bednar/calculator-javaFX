@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -57,6 +58,8 @@ public class Calculator extends Application{
     //make display and add to grid
     public void makeField(){
         textField = new Display();
+        textField.setPadding(new Insets(5,0,5,0));
+        gridPane.setMargin(textField, new Insets(0,0,5,0));
         gridPane.add(textField,0,0,5, 2);
     }
 
