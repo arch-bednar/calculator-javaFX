@@ -79,13 +79,13 @@ public class Calculator extends Application{
         for (int i=0; i<3; i++){
             for (int j=0; j<3; j++){
                 NumberButton button = new NumberButton(Integer.toString(numbers[i][j]), this);
-                //makeEvent(button);
-                //button.setActionEvent();
+                gridPane.setMargin(button, new Insets(1,1,1,1));
                 gridPane.add(button, 0+j, 4+i,1,1);
             }
         }
 
         NumberButton button = new NumberButton(Integer.toString(numbers[3][0]), this);
+        gridPane.setMargin(button, new Insets(1,1,1,1));
         gridPane.add(button,1,7,1,1);
     }
 
@@ -94,45 +94,56 @@ public class Calculator extends Application{
         ActionButton sign = new ActionButton("C", this);
         sign.setMaxWidth(Double.MAX_VALUE);
         sign.setMaxWidth(Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign,3,4,2,1);
 
         sign = new ActionButton("CE", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 3, 5, 2, 1);
 
         sign = new ActionButton("%", this);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 3, 6, 1, 1);
 
         sign = new ActionButton("sqrt", this);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 4, 6, 1, 1);
 
         sign = new ActionButton(".", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 0 ,7,1,1);
 
         sign = new ActionButton("+/-", this);
         //sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         sign.setMaxWidth(35);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 2, 7, 1, 1);
 
         sign = new ActionButton("-", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 3,7,1,1);
 
         sign = new ActionButton("/", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 4, 7, 1, 1);
 
         sign = new ActionButton("=", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 0, 8, 3, 1);
 
         sign = new ActionButton("+", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign,3, 8, 1,1);
 
         sign = new ActionButton("*", this);
         sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 4,8,1,1);
 
     }
