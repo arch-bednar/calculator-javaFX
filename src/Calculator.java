@@ -102,6 +102,7 @@ public class Calculator extends Application{
         gridPane.add(sign, 3, 5, 2, 1);
 
         sign = new ActionButton("%", this);
+        sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 3, 6, 1, 1);
 
