@@ -50,7 +50,7 @@ public class Calculator extends Application{
         makeButtons();
 
         //Scene scene = new Scene( gridPane,300, 300);
-        ActionScene scene = new ActionScene(gridPane, 300, 300, this);
+        ActionScene scene = new ActionScene(gridPane, 320, 320, this);
         gridPane.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, null, null)));
         stage.setScene(scene);
     }
@@ -85,7 +85,6 @@ public class Calculator extends Application{
         }
 
         NumberButton button = new NumberButton(Integer.toString(numbers[3][0]), this);
-        gridPane.setMargin(button, new Insets(1,1,1,1));
         gridPane.add(button,1,7,1,1);
     }
 
@@ -116,8 +115,7 @@ public class Calculator extends Application{
         gridPane.add(sign, 0 ,7,1,1);
 
         sign = new ActionButton("+/-", this);
-        //sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        sign.setMaxWidth(35);
+        sign.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         gridPane.setMargin(sign, new Insets(1,1,1,1));
         gridPane.add(sign, 2, 7, 1, 1);
 
